@@ -8,8 +8,10 @@ import kr2 from './img/kr1.png';
 import { NavLink } from 'react-router-dom';
 import { CiHeart } from "react-icons/ci";
 import LoadingCart from "../Sklet/Loading_cart";
+import { Link } from "react-router-dom";
 
 const Product = ({ data, isLoading }) => {
+   
   if (isLoading) {
     return <h1 className='Container'><LoadingCart/></h1>;
   }
@@ -22,7 +24,10 @@ const Product = ({ data, isLoading }) => {
       </div>
       <button id='btn_cart'>{el.rating.count}</button>
       <img src={el.image} alt={el.description} />
-      <h3 title={el.title}>{el.title}</h3>
+            <Link to={`products/${el.id}`}>
+            <h3 title={el.title}>{el.title}</h3>
+            </Link>
+    
       <span id='re'><Rating /></span>
       <div className="price">
         <span>${el.price}</span>

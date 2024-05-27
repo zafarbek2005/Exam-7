@@ -44,7 +44,8 @@ header {
     justify-content: space-between;
     height: 42px;
     transition: display 0.3s ease;
-
+    border-bottom: 2px solid  #FAFAFB;
+    ;
     &.hidden {
       display: none;
     }

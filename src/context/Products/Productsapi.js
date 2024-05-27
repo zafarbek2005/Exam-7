@@ -5,43 +5,50 @@ export const productApi = api.injectEndpoints({
     // Get request
     getProducts: build.query({
       query: (params) => ({ 
-        url: '/products?limit=8', 
-        params 
+        url: '/products',
+        params: { ...params, limit: 8 },
       }),
-      providesTags:["Product"]
+      providesTags: ["Product"],
+    }),
+    getDetailProduct: build.query({
+      query: (id) => ({ 
+        url: `/products/${id}`, 
+      }),
+      providesTags: (result, error, id) => [{ type: 'Product', id }],
     }),
     // Post request
     createProduct: build.mutation({
-      query: (body)=> ({
+      query: (body) => ({
         url: "/products",
         method: "POST",
-        body
+        body,
       }),
-      invalidatesTags: ["Product"]
+      invalidatesTags: ["Product"],
     }),
     // Patch request
     updateProduct: build.mutation({
-      query: ({_id, body})=> ({
-        url: `/products`,
+      query: ({ id, body }) => ({
+        url: `/products/${id}`,
         method: "PATCH",
-        body
+        body,
       }),
-      invalidatesTags: ["Product"]
+      invalidatesTags: (result, error, { id }) => [{ type: 'Product', id }],
     }),
     // Delete request
     deleteProduct: build.mutation({
-      query: (id)=> ({
-        url:`/products`,
-        method: "DELETE"
+      query: (id) => ({
+        url: `/products/${id}`,
+        method: "DELETE",
       }),
-      invalidatesTags: ["Product"]
-    })
+      invalidatesTags: (result, error, id) => [{ type: 'Product', id }],
+    }),
   }),
 })
 
 export const {
   useGetProductsQuery,
+  useGetDetailProductQuery,
   useDeleteProductMutation,
   useCreateProductMutation,
   useUpdateProductMutation
-} = productApi
+} = productApi;

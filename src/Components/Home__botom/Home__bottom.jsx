@@ -128,7 +128,7 @@ const Home__bottom = () => {
         <button>Search</button>
     </div>
     
-    
+        
     
     
     
