@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.Container {    
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  // padding-top: 200px;
+
+  .tr {
+    padding-top: 123px;
+    padding-left: 83px;
+    text-align: left;
+  }
+  
+  h3 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 56.35px;
+    color: #fff;
+  }
+  
+  p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 18.78px;
+    text-align: left;
+    color: #fff;
+    padding-top: 50px;
+  }
+}
+
+.img {
+  height: 715px;
+  width: 650px;
+}
+
+.inputss {
+  padding: 20px;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 50px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    
+    input, textarea {
+      display: block;
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #f1f1f1;
+      border-radius: 4px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+
+      &:focus {
+        border-color: #75e6ff;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      height: 150px;
+    }
+
+    button {
+      padding: 15px 20px;
+      border: none;
+      background-color: #75e6ff;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #539ecf;
+      }
+    }
+  }
+}
+
+.int {
+  padding-top: 126px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  input{
+    max-width:635px;
+    width: 100%;
+    height: 64px;
+    top: 1227.56px;
+    left: 426.99px;
+    gap: 0px;
+    opacity: 0px;
+    border: 2px solid #BCDDFE;
+    padding: 10px;
+    outline: none;
+  }
+  button{
+    width: 127px;
+height: 64px;
+top: 1227.56px;
+left: 934.99px;
+gap: 0px;
+opacity: 0px;
+background: #40BFFF;
+color: #fff;
+border: none;
+  }
+}

@@ -69,7 +69,7 @@ const Product = ({ data, isLoading }) => {
         </div>
       </div>
 
-      <div className="catigory">
+      <div className="catigory Container">
         <h3>BEST SELLER</h3>
         <div className="tayps">
           <NavLink to="#">
