@@ -18,7 +18,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  // padding-top: 200px;
+  padding-top: 100px;
 
   .tr {
     padding-top: 123px;
@@ -76,7 +76,8 @@
     }
 
     textarea {
-      resize: vertical;
+      resize: none;
+      outline: none;
       height: 150px;
     }
 

@@ -34,7 +34,7 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    const handleScrollDebounced = debounce(handleScroll, 50);
+    const handleScrollDebounced = debounce(handleScroll, 100);
     window.addEventListener('scroll', handleScrollDebounced);
     return () => {
       window.removeEventListener('scroll', handleScrollDebounced);

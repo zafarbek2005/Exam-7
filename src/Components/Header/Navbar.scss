@@ -131,7 +131,11 @@ header {
       .nav__toggle {
         display: block;
       }
-
+      #items__none{
+        span{
+          display: none !important;
+        }
+      }
       .nav__links {
         position: fixed;
         top: 130px;
