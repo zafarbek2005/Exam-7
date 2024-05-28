@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './contact.scss';
-import Bg from './g.svg';
+import Bg from './g2.jpg';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
