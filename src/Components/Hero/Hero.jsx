@@ -18,10 +18,6 @@ const Hero = () => {
     <div className="hero  Container">
         <h3>Super Flash Sale <br /> 50% Off</h3>
 
-
-
-
-
     </div>
 
 

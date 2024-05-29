@@ -18,6 +18,21 @@ const cartSlice = createSlice({
 			}
 			localStorage.setItem("cart", JSON.stringify(state.value));
 		},
+
+		incrementCartQuantity(state, action) {
+			let index = state.value?.findIndex(el => el.id === action.payload.id)
+			state.value = state.value?.map((item , inx)=>{
+			  if(index === inx) {
+				return {...item,quantity :item.quantity + 1}
+			  }else{
+				return item
+			  }
+	  
+			})
+			localStorage.setItem("carts", JSON.stringify(state.value))
+	  
+		  },
+
 		removeFromCart: (state, action) => {
 			state.value = state.value.filter(i => i.id !== action.payload);
 			localStorage.setItem("cart", JSON.stringify(state.value));
@@ -36,5 +51,5 @@ const cartSlice = createSlice({
 	}
 });
 
-export const { addToCart, removeFromCart, decrementCart, deleteAllCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, decrementCart, deleteAllCart ,incrementCartQuantity} = cartSlice.actions;
 export default cartSlice.reducer;

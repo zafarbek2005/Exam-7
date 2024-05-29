@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+   a{
+        text-decoration: none !important;
+        color: #000000;
+     }
+}
+.admin__nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background: #F6F7F8;
+    height: 51px;
+     .admina{
+        text-decoration: none !important;
+     }
+}
+
+
+.Container {
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+.admin__text{
+    overflow: auto;
+}
+.Adminh3{
+    margin-top: 76px;
+    font-family: Poppins;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 60px;
+    letter-spacing: -0.02em;
+    text-align: left;
+    color: #000000;
+}
+.adminpp{
+    margin-top: 41px;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 28.8px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    max-width:1255px;
+    width: 100%;    
+    height: 87px;
+    top: 421px;
+    left: 104px;
+    gap: 0px;
+    opacity: 0px;
+    
+}
+.adminbutton{
+    margin-top: 50px;
+    max-width:338px;
+    width: 100%;
+    height: 70px;
+    gap: 0px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: Poppins;
+    font-size: 26px;
+    color: #F6F7F8;
+    opacity: 0px;
+    background: #33A0FF;
+
+}

@@ -7,12 +7,13 @@ import logo from './img/logo.svg';
 import { Link, NavLink } from "react-router-dom";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { FiMenu, FiX } from "react-icons/fi";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [lastScrollTop, setLastScrollTop] = useState(0);
-
+  const carts = useSelector(s => s.cart.value)
   const handleMenuToggle = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -34,7 +35,7 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    const handleScrollDebounced = debounce(handleScroll, 100);
+    const handleScrollDebounced = debounce(handleScroll, 120);
     window.addEventListener('scroll', handleScrollDebounced);
     return () => {
       window.removeEventListener('scroll', handleScrollDebounced);
@@ -70,9 +71,13 @@ const Navbar = () => {
             </div>
             <div className="items">
               <div className="hearts">
+                <Link to={'/register'}>
                 <span><IoPersonOutline /></span>
+                </Link> 
                 <span><IoIosHeartEmpty /></span>
-                <span><BsCart2 /><sup>6</sup></span>
+                <Link to={"/ProductCart"}>
+                     <span><BsCart2 /><sup id="navsup">{carts.length}</sup></span>
+                 </Link>
               </div>
               <span id="items__none"> Items</span>
               <span>$0.00 <AiOutlineSearch /></span>

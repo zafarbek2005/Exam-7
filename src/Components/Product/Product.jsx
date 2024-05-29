@@ -1,5 +1,5 @@
 import { AiOutlineShoppingCart } from "react-icons/ai"; 
-import React from 'react';
+import React,{memo} from 'react';
 import './product.scss';
 import { Rating } from '@mui/material';
 import sumka from './img/sumka.png';
@@ -9,9 +9,13 @@ import { NavLink } from 'react-router-dom';
 import { CiHeart } from "react-icons/ci";
 import LoadingCart from "../Sklet/Loading_cart";
 import { Link } from "react-router-dom";
+import { IoEyeOutline } from "react-icons/io5";
+import { useDispatch } from 'react-redux'
+import {addToCart} from '../../context/Cart/cartSlice'
 
 const Product = ({ data, isLoading }) => {
-   
+  const dispatch = useDispatch()
+
   if (isLoading) {
     return <h1 className='Container'><LoadingCart/></h1>;
   }
@@ -20,7 +24,10 @@ const Product = ({ data, isLoading }) => {
     <div className="product__cart" key={el.id}>
       <div className="like">
         <button><CiHeart className="svg" /></button>
-        <button><AiOutlineShoppingCart className="svg" /></button>
+        <button  onClick={() => dispatch(addToCart(el))}><AiOutlineShoppingCart className="svg" /></button>
+        <Link to={`products/${el.id}`}>
+        <button className="svg" ><IoEyeOutline /></button>
+        </Link>
       </div>
       <button id='btn_cart'>{el.rating.count}</button>
       <img src={el.image} alt={el.description} />
@@ -73,19 +80,19 @@ const Product = ({ data, isLoading }) => {
         <h3>BEST SELLER</h3>
         <div className="tayps">
           <NavLink to="#">
-            <button>All</button>
+            <p className="bestsalerbtn">All</p>
           </NavLink>
           <NavLink to="#">
-            <button>Bags</button>
+            <p className="bestsalerbtn">Bags</p>
           </NavLink>
           <NavLink to="#">
-            <button>Sneakers</button>
+            <p className="bestsalerbtn">Sneakers</p>
           </NavLink>
           <NavLink to="#">
-            <button>Belt</button>
+            <p className="bestsalerbtn">Belt</p>
           </NavLink>
           <NavLink to="#">
-            <button>Sunglasses</button>
+            <p className="bestsalerbtn">Sunglasses</p>
           </NavLink>
         </div>
       </div>
@@ -96,4 +103,4 @@ const Product = ({ data, isLoading }) => {
   );
 };
 
-export default Product;
+export default memo(Product)

@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.Container {
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+.removeicon{
+    font-size: 32px;
+    color: red;
+    cursor: pointer;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Poppins", sans-serif;
+}
+
+th, td {
+  padding: 15px 8px;
+  text-align: left;
+  border-bottom: 1px solid rgb(248, 234, 234);
+}
+
+th {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+td {
+  font-weight: 400;
+  font-size: 14px;
+  color: #000000;
+}
+
+.tr {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.trrimg {
+  width: 137.85px;
+  height: 94px;
+  object-fit: contain;
+  border-radius: 7px;
+}
+
+.btns_table {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 124.54px;
+    height: 46px;
+    opacity: 0px;
+    background: #F6F7F8;
+        button{
+            border: none;
+            background: 0;
+            font-size: 32px;
+            color: #33A0FF;
+        }
+        span{
+            font-size: 22px;
+        }
+}
+
+th.th, td.th {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  th, td {
+    font-size: 12px;
+  }
+
+  .trrimg {
+    width: 100px;
+    height: 70px;
+  }
+
+  .btns_table {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 400px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  th {
+    display: none;
+  }
+
+  tr {
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgb(248, 234, 234);
+  }
+
+  td {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: none;
+  }
+
+  .tr {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tr_th {
+    width: 100%;
+  }
+
+  .trrimg {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .btns_table {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .btns_table button, .btns_table span {
+    flex: 1;
+    text-align: center;
+  }
+
+  .btns_table button {
+    padding: 5px;
+  }
+}
