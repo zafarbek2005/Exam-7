@@ -77,7 +77,7 @@ const Contact = () => {
           }}
         >
           <div className="tr">
-            <h3>Get in touch</h3>
+            <h3>Get in touch</h3> 
             <p>contact@e-comm.ng</p>
             <p>+234 4556 6665 34</p>
             <p>

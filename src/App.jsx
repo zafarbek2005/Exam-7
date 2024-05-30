@@ -12,6 +12,7 @@ import AdminLink from './Pages/AdminLink/Adminlink'
 import { useGetProductsQuery } from './context/Products/Productsapi';
 import Auth from './Components/Auth/Auth'
 import ProductCart from './Components/Product__cart/Cart'
+import Wishes from './Components/Wishes/Wishes';
 
 const App = () => {
   const { data} = useGetProductsQuery();
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="*" element={<Not__found />} />
         <Route path="Contact" element={<Contact />} />
         <Route path="/ProductCart" element={<ProductCart/>} />
+        <Route path="/Wishes" element={<Wishes/>} />
         <Route path="/register" element={<Loginlink/>} />
         <Route path="/" element={<Auth/>}>
           <Route path="admin" element={<AdminLink/>} />

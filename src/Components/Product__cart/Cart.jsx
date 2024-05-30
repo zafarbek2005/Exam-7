@@ -19,7 +19,7 @@ const Cart = () => {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, remove it!',
+      confirmButtonText: 'Yes, remove it!', 
       cancelButtonText: 'Cancel'
     }).then((result) => {
       if (result.isConfirmed) {

@@ -50,6 +50,7 @@ header {
 .Navbar {
   padding: 28px 5px 11px;
   overflow: hidden;
+  overflow-x: hidden;
   .nav__top {
     display: flex;
     align-items: center;

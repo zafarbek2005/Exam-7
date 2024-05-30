@@ -44,7 +44,7 @@ const Navbar = () => {
 
   function debounce(func, wait) {
     let timeout;
-    return function(...args) {
+    return function(...args) {  
       const later = () => {
         clearTimeout(timeout);
         func(...args);
@@ -71,10 +71,12 @@ const Navbar = () => {
             </div>
             <div className="items">
               <div className="hearts">
-                <Link to={'/register'}>
+                <Link to={'/register'}> 
                 <span><IoPersonOutline /></span>
                 </Link> 
+                <Link to={"/Wishes"}>
                 <span><IoIosHeartEmpty /></span>
+                </Link>
                 <Link to={"/ProductCart"}>
                      <span><BsCart2 /><sup id="navsup">{carts.length}</sup></span>
                  </Link>

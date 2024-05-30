@@ -6,15 +6,18 @@ import sumka from './img/sumka.png';
 import kr from './img/kr.png';  
 import kr2 from './img/kr1.png';
 import { NavLink } from 'react-router-dom';
-import { CiHeart } from "react-icons/ci";
+import { LuHeart } from "react-icons/lu";
 import LoadingCart from "../Sklet/Loading_cart";
 import { Link } from "react-router-dom";
 import { IoEyeOutline } from "react-icons/io5";
 import { useDispatch } from 'react-redux'
 import {addToCart} from '../../context/Cart/cartSlice'
+import {toggleHeart} from '../../context/Heart/heartSlice'
+import { useSelector } from "react-redux";
 
 const Product = ({ data, isLoading }) => {
   const dispatch = useDispatch()
+  let wishlist = useSelector(s => s.heart.value)
 
   if (isLoading) {
     return <h1 className='Container'><LoadingCart/></h1>;
@@ -23,7 +26,13 @@ const Product = ({ data, isLoading }) => {
   let Data = data?.map((el) => (
     <div className="product__cart" key={el.id}>
       <div className="like">
-        <button><CiHeart className="svg" /></button>
+      <button onClick={() => dispatch(toggleHeart(el))}>
+                    {wishlist.some((item) => item.id === el.id) ? (
+                      <LuHeart className="likee" style={{ color: "red" }} />
+                    ) : (
+                      <LuHeart className="svg" />
+                    )}
+                  </button>
         <button  onClick={() => dispatch(addToCart(el))}><AiOutlineShoppingCart className="svg" /></button>
         <Link to={`products/${el.id}`}>
         <button className="svg" ><IoEyeOutline /></button>
