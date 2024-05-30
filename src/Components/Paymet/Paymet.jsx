@@ -6,7 +6,7 @@ import Checkboxes from '../checkbox/Chekbox';
 import { FaPaypal } from "react-icons/fa";
 import './Paymet.scss';
 
-const Paymet = () => {
+const Paymet = ({ onClose }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -59,36 +59,42 @@ const Paymet = () => {
   };
 
   return (
-    <>
-      <div className="Paymet Container">
-        <div className="pay__nav">
-          <Link><FaArrowLeftLong /></Link>
-          <p>X</p>
-        </div>
-        <h3 id='makep'>Make Payment</h3>
+   <>
+    <div className="Paymet Container">
 
-        <form onSubmit={handleSubmit}>
-          <div className="make__inputs">
-            <div className="fristsection">
-              <input type="text" placeholder='First Name' value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-              <input type="text" placeholder='Email Address' value={email} onChange={(e) => setEmail(e.target.value)} />
-              <p>Select Method of Payment</p>
-              <div className="selww">
-                <h3><CiCreditCard2 />  Credit Card Or Debit <Checkboxes className="checkbox" /></h3>
-                <h3><FaPaypal /> Paypal    <Checkboxes className="checkbox" /></h3>
-                <h3><CiBank />  Bank Transfer <Checkboxes className="checkbox" /></h3>
-              </div>
-            </div>
-            <div className="fristsection">
-              <input type="text" placeholder='Last Name' value={lastName} onChange={(e) => setLastName(e.target.value)} />
-              <textarea placeholder='Address for Delivery' value={address} onChange={(e) => setAddress(e.target.value)}></textarea>
-              <input type="text" placeholder='Mobile Phone' value={phone} onChange={(e) => setPhone(e.target.value)} />
+      <div className="pay__nav">
+        <Link><FaArrowLeftLong /></Link>
+        <p onClick={onClose}>X</p>
+      </div>
+      <h3 id='makep'>Make Payment</h3>
+      <form onSubmit={handleSubmit}>
+        <div className="make__inputs">
+          <div className="fristsection">
+            <input type="text" required placeholder='First Name' value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+            <input type="text" required placeholder='Email Address' value={email} onChange={(e) => setEmail(e.target.value)} />
+            <p>Select Method of Payment</p>
+            <div className="selww">
+              <h3><CiCreditCard2 />  Credit Card Or Debit <Checkboxes className="checkbox" /></h3>
+              <h3><FaPaypal /> Paypal <Checkboxes className="checkbox" /></h3>
+              <h3><CiBank />  Bank Transfer <Checkboxes className="checkbox" /></h3>
             </div>
           </div>
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-    </>
+          <div className="secondsection">
+            <input type="text" required placeholder='Last Name' value={lastName} onChange={(e) => setLastName(e.target.value)} />
+            <textarea required placeholder='Address for Delivery' value={address} onChange={(e) => setAddress(e.target.value)}></textarea>
+            <input required type="text" placeholder='Mobile Phone' value={phone} onChange={(e) => setPhone(e.target.value)} />
+          </div>
+        </div>
+        <button type="submit">Go to Payment</button>
+      </form>
+    </div>
+   
+   
+   
+   
+   
+   
+   </>
   );
 };
 

@@ -2,7 +2,7 @@ import { api } from '../Api';
 
 export const productApi = api.injectEndpoints({
   endpoints: (build) => ({
-    // Get request
+
     getProducts: build.query({
       query: (params) => ({ 
         url: '/products',
@@ -16,7 +16,7 @@ export const productApi = api.injectEndpoints({
       }),
       providesTags: (result, error, id) => [{ type: 'Product', id }],
     }),
-    // Post request
+
     createProduct: build.mutation({
       query: (body) => ({
         url: "/products",
@@ -25,7 +25,7 @@ export const productApi = api.injectEndpoints({
       }),
       invalidatesTags: ["Product"],
     }),
-    // Patch request
+
     updateProduct: build.mutation({
       query: ({ id, body }) => ({
         url: `/products/${id}`,
@@ -34,7 +34,7 @@ export const productApi = api.injectEndpoints({
       }),
       invalidatesTags: (result, error, { id }) => [{ type: 'Product', id }],
     }),
-    // Delete request
+    
     deleteProduct: build.mutation({
       query: (id) => ({
         url: `/products/${id}`,
