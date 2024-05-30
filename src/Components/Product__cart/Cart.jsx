@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './cart.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { AiOutlineDelete } from "react-icons/ai";
 import { incrementCartQuantity, removeFromCart, decrementCart } from '../../context/Cart/cartSlice';
 import Swal from 'sweetalert2';
+import Paymet from '../Paymet/Paymet';
 
 const Cart = () => {
-  const dispatch = useDispatch();
-  const cartItems = useSelector((state) => state.cart.value);
+      const dispatch = useDispatch();
+      const cartItems = useSelector((state) => state.cart.value);
+      const [voucher, setVoucher] = useState('');
+      const [discount, setDiscount] = useState(0);
+      const [voucherError, setVoucherError] = useState('');
 
   const total = cartItems?.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  const discountedTotal = total - discount;
 
   const handleRemoveFromCart = (item) => {
     Swal.fire({
@@ -19,7 +24,7 @@ const Cart = () => {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, remove it!', 
+      confirmButtonText: 'Yes, remove it!',
       cancelButtonText: 'Cancel'
     }).then((result) => {
       if (result.isConfirmed) {
@@ -33,8 +38,27 @@ const Cart = () => {
     });
   };
 
+  const handleVoucherRedeem = () => {
+    if (voucher === 'ZAFARBEK') {
+      setDiscount(total * 0.5); 
+      setVoucherError('');
+      Swal.fire(
+        'Success!',
+        'Voucher applied successfully.',
+        'success'
+      );
+    } else {
+      setVoucherError('Invalid voucher code');
+      Swal.fire(
+        'Error!',
+        'Invalid voucher code.',
+        'error'
+      );
+    }
+  };
 
   return (
+ <>
     <div className="product__cart Container">
       <table>
         <thead>
@@ -77,10 +101,48 @@ const Cart = () => {
           ))}
         </tbody>
       </table>
-      <div className="total">
-        <h2>Total: $ {total.toFixed(2)}</h2>
+      <div className="total_waucher Container">
+        <div className="waycher">
+          <input
+            type="text"
+            placeholder='Voucher ZAFARBEK  50% chegirma'
+            value={voucher}
+            onChange={(e) => setVoucher(e.target.value)}
+          />
+          <button onClick={handleVoucherRedeem}>Redeem</button>
+          {voucherError && <p className="error">{voucherError}</p>}
+        </div>
+        <div className="chek">
+          <div className="chekitem">
+            <p>Subtotal</p>
+            <p>$ {total.toFixed(2)}</p>
+          </div>
+          <div className="chekitem">
+            <p>Shipping fee</p>
+            <p>$20.00</p>
+          </div>
+          <div className="chekitem">
+            <p>Coupon</p>
+            <p>$ {discount > 0 ? discount.toFixed(2) : 'No'}</p>
+          </div>
+          <div className="chekitem">
+            <h3>TOTAL</h3>
+            <p>$ {(discountedTotal + 20).toFixed(2)}</p> 
+          </div>
+          <div className="chekitem">
+            <button id='chekbtn'>Check out</button>
+          </div>
+        </div>
       </div>
     </div>
+ 
+ 
+ 
+ {/* <Paymet/> */}
+ 
+ 
+ 
+ </>
   );
 };
 

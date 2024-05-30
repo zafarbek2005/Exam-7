@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.Container {
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.Paymet {
+    margin-top: 50px;
+    max-width:1021.5px;
+    width: 100%;
+    height: 792.84px;
+    top: 473.03px;
+    left: 229.15px;
+    gap: 0px;
+    opacity: 0px;
+    background-color: rgb(157, 255, 0);
+  
+      .pay__nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 70px;
+          svg{
+            font-size: 26px;
+            color: #40BFFF;
+          }
+          p{
+            font-size: 26px;
+            width: 25px;
+            height: 25px;
+            top: 541.72px;
+            left: 1113.95px;
+            gap: 0px;
+            opacity: 0.5px;
+            font-weight: 600;
+            color: #40BFFF;
+            cursor: pointer;
+          }
+      }
+      #makep{
+        width: 227.51px;
+        height: 51.53px;
+        top: 556.27px;
+        opacity: 0px;
+        font-family: Raleway;
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 37.57px;
+        color: #40BFFF;
+        margin: 0 auto;
+      }
+}
+
+.make__inputs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:150px;
+    flex-wrap: wrap;
+      .fristsection{
+        display: block;
+
+         input{
+        width:450px;
+        width: 100%;
+        text-indent: 10px;
+        height: 50px;
+        gap: 0px;
+        border-radius: 10px ;
+        opacity: 0.3px;
+        border: none;
+        outline: none;
+        margin-bottom: 32px;
+         }
+         p{
+            font-family: Raleway;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 23.48px;
+            color: #40BFFF;
+         }
+      }
+      .selww{
+        display: block;
+         h3{
+            font-family: Poppins;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 18px;
+            letter-spacing: 0.5px;
+            text-align: left;
+            color: #223263;
+            display: flex;
+            align-items: center;
+            // justify-content: center;
+            background: #EBF0FF;
+            padding: 10px;
+            gap: 50px;
+                svg{
+                    font-size: 24px;
+                    color: #1565C0;
+
+                }
+           
+         }
+      }
+      
+}

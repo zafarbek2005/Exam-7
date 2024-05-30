@@ -13,6 +13,7 @@
   padding: 0 20px;
   margin: 0 auto;
 }
+
 .removeicon{
     font-size: 32px;
     color: red;
@@ -22,6 +23,65 @@ table {
   width: 100%;
   border-collapse: collapse;
   font-family: "Poppins", sans-serif;
+  margin-bottom: 100px;
+}
+.total_waucher{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+    .waycher {
+      input{
+        width: 250px;
+        height: 60px;
+        top: 859.03px;
+        left: 134.48px;
+        gap: 0px;
+        opacity: 0px;
+        border: 2px solid #F1F3F4;
+        outline: none;
+        text-indent: 10px;
+      }
+      button{
+        width: 118px;
+        height: 60px;
+        gap: 0px;
+        opacity: 0px;
+        background: #33A0FF;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+      }
+    }
+    .chek{
+        .chekitem {
+          display: flex;  
+          align-items: center;
+          gap: 150px;
+          justify-content: space-between;
+            p{
+              font-family: Poppins;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 27px;
+            padding-bottom: 26px;
+            }
+            #chekbtn{
+              margin-top: 10px;
+              width: 374.12px;
+              height: 60px;
+              top: 1109.03px;
+              left: 934.48px;
+              gap: 0px;
+              opacity: 0px;
+              background: #33A0FF;
+              border: none;
+              color: #F1F3F4;
+              border-radius: 5px;
+              font-size: 26px;
+            }
+        }
+    }
 }
 
 th, td {
@@ -142,4 +202,10 @@ th.th, td.th {
   .btns_table button {
     padding: 5px;
   }
+}
+@media (max-width:850px) {
+.chek{
+  padding-top: 50px;
+}
+
 }

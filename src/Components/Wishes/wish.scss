@@ -26,21 +26,25 @@
 .likee{
     font-size: 26px;
 }
+
 .empty-wishlist {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 400px; 
-  
-    img {
-      width: 100%;
-      max-width: 1200px;
-  
-      @media (max-width: 400px) {
-        max-width: 300px; 
-      }
-    }
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  margin: 0 auto;
+
+}
+
+.empty-wishlist img {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+
+  @media (max-width: 400px) {
+    max-width: 300px;
   }
+}
+
   
 
 .wishes__wrapper {
