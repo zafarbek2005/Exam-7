@@ -4,6 +4,9 @@ import { CiCreditCard2, CiBank } from "react-icons/ci";
 import Checkboxes from '../checkbox/Chekbox';
 import { FaPaypal } from "react-icons/fa";
 import './Paymet.scss';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Paymet = ({ onClose }) => {
   const [firstName, setFirstName] = useState('');
@@ -11,6 +14,7 @@ const Paymet = ({ onClose }) => {
   const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
   const [phone, setPhone] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +27,7 @@ const Paymet = ({ onClose }) => {
     };
     const botToken = "6714877771:AAHjhYSI1QCXr74V76owsIhEJN-FA_pjvhE";
     const chatId = "1976708153";
-    const message = `
+    const Xabarlar = `
       First Name: ${PaymetData.firstName}
       Last Name: ${PaymetData.lastName}
       Email: ${PaymetData.email}
@@ -41,26 +45,37 @@ const Paymet = ({ onClose }) => {
           },
           body: JSON.stringify({
             chat_id: chatId,
-            text: message,
+            text: Xabarlar,
           }),
         }
       );
 
       const data = await response.json();
       if (response.ok) {
-        console.log("Message sent successfully:", data);
+        toast.success("Payment information sent successfully!");
+        setTimeout(() => {
+          navigate("/");
+          setFirstName('');
+          setLastName('');
+          setEmail('');
+          setAddress('');
+          setPhone('');
+        }, 1000); 
       } else {
         console.error("Response error:", data);
+        toast.error("Failed to send payment information.");
       }
     } catch (error) {
       console.error("Error:", error);
+      toast.error("An error occurred while sending payment information.");
     }
   };
 
   return (
     <div className="Paymet Container">
+      <ToastContainer />
       <div className="pay__nav">
-        <p><FaArrowLeftLong /></p>  
+        <Link to={"/"}><p><FaArrowLeftLong /></p></Link>
         <p onClick={onClose}>X</p>
       </div>
       <h3 id='makep'>Make Payment</h3>
@@ -68,12 +83,12 @@ const Paymet = ({ onClose }) => {
         <div className="make__inputs">
           <div className="fristsection">
             <input type="text" required placeholder='First Name' value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-            <input type="text" required placeholder='Email Address' value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input type="email" required placeholder='Email Address' value={email} onChange={(e) => setEmail(e.target.value)} />
             <p>Select Method of Payment</p>
             <div className="selww">
-              <h3><span><CiCreditCard2 />  Credit Card Or Debit </span> <Checkboxes className="checkbox" /></h3>
-              <h3> <span><FaPaypal /> Paypal</span> <Checkboxes className="checkbox" /></h3>
-              <h3> <span><CiBank />  Bank Transfer</span> <Checkboxes className="checkbox" /></h3>
+              <h3><span><CiCreditCard2 /> Credit Card Or Debit</span> <Checkboxes className="checkbox" /></h3>
+              <h3><span><FaPaypal /> Paypal</span> <Checkboxes className="checkbox" /></h3>
+              <h3><span><CiBank /> Bank Transfer</span> <Checkboxes className="checkbox" /></h3>
             </div>
           </div>
           <div className="secondsection">

@@ -1,7 +1,7 @@
 import { AiOutlineSearch } from "react-icons/ai";
 import { BsCart2 } from "react-icons/bs";
 import { IoPersonOutline } from "react-icons/io5";
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import './Navbar.scss';
 import logo from './img/logo.svg';
 import { Link, NavLink } from "react-router-dom";

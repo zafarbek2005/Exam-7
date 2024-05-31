@@ -30,9 +30,10 @@ const Product = ({ data, isLoading }) => {
       <div className="like">
       <button onClick={() => dispatch(toggleHeart(el))}>
                     {wishlist.some((item) => item.id === el.id) ? (
-                      <FaRegHeart className="svg"  />
+                      <FaHeart className="hearts"  />
+                     
                     ) : (
-                      <FaHeart className="hearts" />  
+                      <FaRegHeart className="svg" />  
                     )}
                   </button>
                   <button onClick={() => dispatch(addToCart(el))}>
@@ -114,6 +115,9 @@ const Product = ({ data, isLoading }) => {
       </div>
       <div className="Wrapper__product Container">
         {Data}
+      </div>
+      <div className="loadmore">
+        <button>LOAD MORE</button>
       </div>
     </>
   );
