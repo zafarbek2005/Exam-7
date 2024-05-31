@@ -19,7 +19,7 @@ const Footer = () => {
                 <p>Since the 1500s, when an unknown printer took a galley of type and scrambled.</p>
             </div>
             <div className="items">
-                <h3>Follow Us</h3>
+                <h3>Contact Us</h3>
                 <p>Since the 1500s, when an unknown printer took a galley of type and scrambled.</p>
             </div>
         </div>
