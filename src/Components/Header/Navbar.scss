@@ -27,19 +27,18 @@ position: relative;
 top:-7px;
 }
 header {
-  overflow-x: hidden;
-  position: sticky;
-  top: 0;
-  z-index: 100;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
   &.shrink {
-    .nav__top {
-      display: none;
-    }
+
     .nav_bottom {
       padding: 10px 2px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
 
       .nav__logo img {
         height: 40px; 
@@ -50,8 +49,6 @@ header {
 
 .Navbar {
   padding: 28px 5px 11px;
-  overflow: hidden;
-  overflow-x: hidden;
   .nav__top {
     display: flex;
     align-items: center;
@@ -59,7 +56,6 @@ header {
     height: 42px;
     transition: display 0.3s ease;
     border-bottom: 2px solid  #FAFAFB;
-    ;
     &.hidden {
       display: none;
     }
@@ -102,12 +98,10 @@ header {
   }
 
   .nav_bottom {
-    padding: 28px 2px 11px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     transition: padding 0.3s ease;
-
     .nav__logo img {
       max-width: 100%;
       transition: height 0.3s ease;
@@ -175,19 +169,21 @@ header {
     }
   }
 
-//   @media (max-width: 968px) {
-//     .hearts{
-//         position: fixed !important;
-//         bottom: 0;
-//         display: flex;
-//         align-items: center;
-//         // justify-content: center;L
-//         text-align: center;
-//         background: #fff;
-//         height: 40px;
-//         width: 100%;
-//         gap: 60px;
-       
-//     }
-//   }
+  @media (max-width: 968px) {
+    .hearts{
+        position: fixed !important;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        background: #fff;
+        height: 50px;
+        width: 100%;
+        right: 0;
+        left: 0;
+        justify-content: space-evenly;
+        padding: 20px 0;
+        z-index: 100;
+    }
+  }
 }

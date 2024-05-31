@@ -6,7 +6,6 @@ import sumka from './img/sumka.png';
 import kr from './img/kr.png';  
 import kr2 from './img/kr1.png';
 import { NavLink } from 'react-router-dom';
-import { LuHeart } from "react-icons/lu";
 import LoadingCart from "../Sklet/Loading_cart";
 import { Link } from "react-router-dom";
 import { IoEyeOutline } from "react-icons/io5";
@@ -14,10 +13,13 @@ import { useDispatch } from 'react-redux'
 import {addToCart} from '../../context/Cart/cartSlice'
 import {toggleHeart} from '../../context/Heart/heartSlice'
 import { useSelector } from "react-redux";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { BsCartCheck } from "react-icons/bs";
 
 const Product = ({ data, isLoading }) => {
   const dispatch = useDispatch()
   let wishlist = useSelector(s => s.heart.value)
+  let carts = useSelector(s => s.cart.value)
 
   if (isLoading) {
     return <h1 className='Container'><LoadingCart/></h1>;
@@ -28,13 +30,18 @@ const Product = ({ data, isLoading }) => {
       <div className="like">
       <button onClick={() => dispatch(toggleHeart(el))}>
                     {wishlist.some((item) => item.id === el.id) ? (
-                      <LuHeart className="likee" style={{ color: "red" }} />
+                      <FaRegHeart className="svg"  />
                     ) : (
-                      <LuHeart className="svg" />
+                      <FaHeart className="hearts" />  
                     )}
                   </button>
-        <button  onClick={() => dispatch(addToCart(el))}><AiOutlineShoppingCart className="svg" /></button>
-        <Link to={`products/${el.id}`}>
+                  <button onClick={() => dispatch(addToCart(el))}>
+                    {carts.some((item) => item.id === el.id) ? (
+                      <BsCartCheck className="svg"  />
+                    ) : (
+                      <AiOutlineShoppingCart className="svg" />  
+                    )}
+                  </button>        <Link to={`products/${el.id}`}>
         <button className="svg" ><IoEyeOutline /></button>
         </Link>
       </div>

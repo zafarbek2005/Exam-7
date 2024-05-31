@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { CiCreditCard2, CiBank } from "react-icons/ci";
 import Checkboxes from '../checkbox/Chekbox';
@@ -15,7 +14,7 @@ const Paymet = ({ onClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = {
+    const PaymetData = {
       firstName,
       lastName,
       email,
@@ -25,11 +24,11 @@ const Paymet = ({ onClose }) => {
     const botToken = "6714877771:AAHjhYSI1QCXr74V76owsIhEJN-FA_pjvhE";
     const chatId = "1976708153";
     const message = `
-      First Name: ${formData.firstName}
-      Last Name: ${formData.lastName}
-      Email: ${formData.email}
-      Address: ${formData.address}
-      Phone: ${formData.phone}
+      First Name: ${PaymetData.firstName}
+      Last Name: ${PaymetData.lastName}
+      Email: ${PaymetData.email}
+      Address: ${PaymetData.address}  
+      Phone: ${PaymetData.phone}
     `;
 
     try {
@@ -59,11 +58,9 @@ const Paymet = ({ onClose }) => {
   };
 
   return (
-   <>
     <div className="Paymet Container">
-
       <div className="pay__nav">
-        <Link><FaArrowLeftLong /></Link>
+        <p><FaArrowLeftLong /></p>  
         <p onClick={onClose}>X</p>
       </div>
       <h3 id='makep'>Make Payment</h3>
@@ -74,9 +71,9 @@ const Paymet = ({ onClose }) => {
             <input type="text" required placeholder='Email Address' value={email} onChange={(e) => setEmail(e.target.value)} />
             <p>Select Method of Payment</p>
             <div className="selww">
-              <h3><CiCreditCard2 />  Credit Card Or Debit <Checkboxes className="checkbox" /></h3>
-              <h3><FaPaypal /> Paypal <Checkboxes className="checkbox" /></h3>
-              <h3><CiBank />  Bank Transfer <Checkboxes className="checkbox" /></h3>
+              <h3><span><CiCreditCard2 />  Credit Card Or Debit </span> <Checkboxes className="checkbox" /></h3>
+              <h3> <span><FaPaypal /> Paypal</span> <Checkboxes className="checkbox" /></h3>
+              <h3> <span><CiBank />  Bank Transfer</span> <Checkboxes className="checkbox" /></h3>
             </div>
           </div>
           <div className="secondsection">
@@ -88,13 +85,6 @@ const Paymet = ({ onClose }) => {
         <button type="submit">Go to Payment</button>
       </form>
     </div>
-   
-   
-   
-   
-   
-   
-   </>
   );
 };
 

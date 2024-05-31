@@ -42,12 +42,12 @@
      }
  
      #btn_cart {
-       width: 64px;
+       width: 54px !important;
        height: 33px;
        color: #fff;
        border: none;
        background: #ff4858;
-       border-radius: 15px;
+       border-radius: 1px !important;
        position: absolute;
        left: 5px;
        top: 10px;
@@ -160,6 +160,11 @@
        font-size: 24px;
        color: #33a0ff !important;
        transition: 0.3s ease;
+     }
+     .hearts{
+      font-size: 24px;
+      color:red!important;
+      transition: 0.3s ease;
      }
    }
  }
@@ -274,6 +279,7 @@
        font-weight: 400;
        line-height: 33px;
        padding-top: 20px;
+       color: #000 !important;
  
        &:hover,
        &.active {

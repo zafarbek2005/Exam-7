@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
+  const [contactData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
@@ -15,7 +15,7 @@ const Contact = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
-      ...formData,
+      ...contactData,
       [name]: value,
     });
   };
@@ -25,9 +25,9 @@ const Contact = () => {
     const botToken = "6714877771:AAHjhYSI1QCXr74V76owsIhEJN-FA_pjvhE";
     const chatId = "1976708153";
     const message = `
-      Name: ${formData.name}
-      Email: ${formData.email}
-      Message: ${formData.message}
+      Name: ${contactData.name}
+      Email: ${contactData.email}
+      Message: ${contactData.message}
     `;
 
     try {
@@ -93,7 +93,7 @@ const Contact = () => {
               type="text"
               name="name"
               placeholder="Zafarbek"
-              value={formData.name}
+              value={contactData.name}
               onChange={handleChange}
               required
             />
@@ -102,7 +102,7 @@ const Contact = () => {
               type="email"
               name="email"
               placeholder="zafarbekkarimboyev47@gmail.com"
-              value={formData.email}
+              value={contactData.email}
               onChange={handleChange}
               required
             />
@@ -110,7 +110,7 @@ const Contact = () => {
             <textarea
               name="message"
               placeholder="Type your message"
-              value={formData.message}
+              value={contactData.message}
               onChange={handleChange}
               required
             />

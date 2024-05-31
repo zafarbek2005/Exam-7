@@ -57,7 +57,7 @@ table {
         .chekitem {
           display: flex;  
           align-items: center;
-          gap: 150px;
+          gap: 100px;
           justify-content: space-between;
             p{
               font-family: Poppins;
@@ -70,9 +70,6 @@ table {
               margin-top: 10px;
               width: 374.12px;
               height: 60px;
-              top: 1109.03px;
-              left: 934.48px;
-              gap: 0px;
               opacity: 0px;
               background: #33A0FF;
               border: none;
@@ -138,6 +135,18 @@ th.th, td.th {
   text-align: center;
 }
 
+.empty-cart {
+  text-align: center;
+  margin-top: 50px;
+  img{
+    max-width: 500px;
+    width: 100%;
+
+  }
+ 
+}
+
+
 @media (max-width: 768px) {
   th, td {
     font-size: 12px;
@@ -202,10 +211,4 @@ th.th, td.th {
   .btns_table button {
     padding: 5px;
   }
-}
-@media (max-width:850px) {
-.chek{
-  padding-top: 50px;
-}
-
 }

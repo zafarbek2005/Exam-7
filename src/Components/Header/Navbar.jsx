@@ -11,54 +11,17 @@ import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [lastScrollTop, setLastScrollTop] = useState(0);
   const carts = useSelector(s => s.cart.value)
+  const Wishes = useSelector(s => s.heart.value)
   const handleMenuToggle = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const handleScroll = () => {
-    const currentScrollTop = window.scrollY;
-
-    if (currentScrollTop > lastScrollTop && currentScrollTop > 150) {
-      if (!isScrolled) {
-        setIsScrolled(true);
-      }
-    } else if (currentScrollTop < lastScrollTop && currentScrollTop < 100) {
-      if (isScrolled) {
-        setIsScrolled(false);
-      }
-    }
-
-    setLastScrollTop(currentScrollTop);
-  };
-
-  useEffect(() => {
-    const handleScrollDebounced = debounce(handleScroll, 120);
-    window.addEventListener('scroll', handleScrollDebounced);
-    return () => {
-      window.removeEventListener('scroll', handleScrollDebounced);
-    };
-  }, [lastScrollTop, isScrolled]);
-
-  function debounce(func, wait) {
-    let timeout;
-    return function(...args) {  
-      const later = () => {
-        clearTimeout(timeout);
-        func(...args);
-      };
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-    };
-  }
-
   return (
     <>
-      <header className={`${isScrolled ? 'shrink' : ''}`}>
+      <header>
         <div className="Navbar Container">
-          <div className={`nav__top ${isScrolled ? 'hidden' : ''}`}>
+          <div className="nav__top">
             <div className="select">
               <select>
                 <option value="en">EN</option>
@@ -75,7 +38,7 @@ const Navbar = () => {
                 <span><IoPersonOutline /></span>
                 </Link> 
                 <Link to={"/Wishes"}>
-                <span><IoIosHeartEmpty /></span>
+                <span><IoIosHeartEmpty /><sup id="navsup">{Wishes.length}</sup></span>
                 </Link>
                 <Link to={"/ProductCart"}>
                      <span><BsCart2 /><sup id="navsup">{carts.length}</sup></span>

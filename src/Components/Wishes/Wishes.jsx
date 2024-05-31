@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { IoEyeOutline } from "react-icons/io5";
 import { Rating } from '@mui/material';
 import { toggleHeart } from '../../context/Heart/heartSlice';
+import emty from './emty.png'
 
 const Wishes = () => {
   const wishlist = useSelector(state => state.heart.value);
@@ -46,7 +47,7 @@ const Wishes = () => {
     ))
   ) : (
     <div className="empty-wishlist Container">
-        <img  src="https://www.beatsmed.com/static/images/empty-wishlist.png" alt="emty.png" />
+        <img src= {emty} alt="" />
     </div>
   )
 
