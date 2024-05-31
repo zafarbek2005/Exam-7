@@ -16,7 +16,7 @@ import { useSelector } from "react-redux";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { BsCartCheck } from "react-icons/bs";
 
-const Product = ({ data, isLoading }) => {
+const Product = ({ data, isLoading,setOfset }) => {
   const dispatch = useDispatch()
   let wishlist = useSelector(s => s.heart.value)
   let carts = useSelector(s => s.cart.value)
@@ -117,7 +117,7 @@ const Product = ({ data, isLoading }) => {
         {Data}
       </div>
       <div className="loadmore">
-        <button>LOAD MORE</button>
+        <button onClick={() => setOfset(p => p+1)}>LOAD MORE</button>
       </div>
     </>
   );

@@ -1,6 +1,6 @@
 *{
   a{
-    text-decoration: none;
+    text-decoration: none !important;
   }
   button{
     cursor: pointer;
@@ -302,16 +302,41 @@
      }
    }
  }
- .loadmore{
+ .loadmore {
   text-align: center;
   margin-top: 50px;
-    button{
-      font-family: Poppins;
-      font-size: 20px;
-      font-weight: 500;
-      line-height: 30px;
-      color: #33A0FF;
-      border: none;
-      background: 0;
+
+  button {
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    color: #33A0FF;
+    border: 2px solid #33A0FF;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+
+    &:hover {
+      background-color: #33A0FF;
+      color: white;
     }
- }
+  }
+}
+
+.loadmore-text {
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  color: #33A0FF;
+  cursor: pointer;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #0b5394;
+  }
+}
+
