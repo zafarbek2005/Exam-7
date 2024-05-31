@@ -8,6 +8,7 @@ import { Link, NavLink } from "react-router-dom";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { FiMenu, FiX } from "react-icons/fi";
 import { useSelector } from "react-redux";
+import { IoHomeOutline } from "react-icons/io5";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -34,6 +35,9 @@ const Navbar = () => {
             </div>
             <div className="items">
               <div className="hearts">
+                <Link to={'/'}> 
+                <span className="homesvg"><IoHomeOutline /></span>
+                </Link> 
                 <Link to={'/register'}> 
                 <span><IoPersonOutline /></span>
                 </Link> 

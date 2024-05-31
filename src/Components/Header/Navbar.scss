@@ -13,6 +13,9 @@
   padding: 0 20px;
   margin: 0 auto;
 }
+.homesvg{
+  display: none !important;
+}
 #navsup{
   width: 20px;
 height: 20px;
@@ -135,6 +138,9 @@ header {
   }
 
   @media (max-width: 968px) {
+    .homesvg{
+      display: block !important;
+    }
     .nav_bottom {
       .nav__toggle {
         display: block;
