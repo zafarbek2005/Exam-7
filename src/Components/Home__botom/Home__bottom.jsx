@@ -23,7 +23,7 @@ const Home__bottom = () => {
         </div>
 
         <div className="krasofka">
-          <img src={Krasofka} alt="Krasofka" />
+          <img id="adidaskrasofka" src={Krasofka} alt="Krasofka" />
         </div>
       </div>
 

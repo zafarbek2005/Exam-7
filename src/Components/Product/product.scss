@@ -8,14 +8,11 @@
 }
 
 .Wrapper__product {
-   display: grid !important;
-   grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)) !important;
-   grid-template-rows: auto !important;
-   grid-column-gap: 35px !important; 
-   grid-row-gap: 140px !important;
-   justify-items: center !important;
-   row-gap: 30px !important; 
-   
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
    .product__cart {
      max-width:299.5px;
      width: 100%;
