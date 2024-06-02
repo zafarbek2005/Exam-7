@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 
 const Contact = () => {
-  const [contactData, setFormData] = useState({
+  const [contactData, setcontactData] = useState({
     name: "",
     email: "",
     message: "",
@@ -14,7 +14,7 @@ const Contact = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
+    setcontactData({
       ...contactData,
       [name]: value,
     });
